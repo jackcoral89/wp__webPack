@@ -1,0 +1,20 @@
+{
+  "name": "wpwebpack",
+  "version": "1.0.0",
+  "description": "wp__webPack",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "bootstrap": "^4.5.0",
+    "gsap": "^3.3.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "author": "We-Code Digital Studio - Software Development",
+  "license": "ISC"
+}
