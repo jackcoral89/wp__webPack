@@ -15,7 +15,7 @@ if (!function_exists('wp_webpack_scripts')) {
         // wp_enqueue_script('gagliardini-clamp-js', get_template_directory_uri() . '/assets/js/clamp.min.js', null, true); // clamp
         // wp_enqueue_script('gagliardini-swiper-js', get_template_directory_uri() . '/assets/js/swiper.min.js', null, true); // swiper
         // wp_enqueue_script('gagliardini-animsition-js', get_template_directory_uri() . '/assets/js/animsition.min.js', null, true); // animsition
-        wp_enqueue_script('wp-webback-bundle', get_stylesheet_directory_uri() . '/public/js/bundle.js', null, 0.1, true); // main
+        wp_enqueue_script('wp-webback-index', get_stylesheet_directory_uri() . '/public/js/index.js', null, 0.1, true); // main
     }
 }
 add_action('wp_enqueue_scripts', 'wp_webpack_scripts');
