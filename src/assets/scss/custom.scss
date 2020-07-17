@@ -1,0 +1,37 @@
+// Colors set
+$primary: green;
+$secondary: yellow;
+
+// $theme-colors: (
+//   "tertiary": $tertiary,
+//   "deep-dark": $deep-dark,
+// );
+
+// @each $color in $theme-colors {
+//     .text-#{$color} {
+//         color: $color;
+//     }
+// }
+
+// // Media breakpoint
+$xs: 320px;
+$sm: 575px;
+$md: 768px;
+$lg: 991px;
+$xl: 1199px;
+
+// Font family
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700&display=swap");
+$main-font: "Inter", sans-serif;
+
+// Font size
+$h1: 3.75rem; // 60px
+$h2: 2.875rem; // 46px
+$h3: 1.5rem; // 24px
+$h4: 1.375rem; // 22px
+$h5: 1.25rem; // 20px
+$h6: 0.875rem; // 14px
+$p: 1rem; // 16px
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "partials/about";
