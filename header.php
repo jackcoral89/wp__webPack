@@ -15,3 +15,11 @@
 </head>
 
 <body>
+
+    <section class="nav pt-5 pl-5">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/works">Works</a></li>
+        </ul>
+    </section>

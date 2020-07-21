@@ -1,4 +1,6 @@
-import '../assets/scss/custom.scss';
+import './global.scss';
+
+import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 export class Index {
 

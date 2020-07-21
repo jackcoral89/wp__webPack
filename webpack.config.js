@@ -5,7 +5,8 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/app/index.js',
-        about: './src/app/components/about.js'
+        about: './src/app/about/about.js',
+        works: './src/app/works/works.js',
     },
     output: {
         path: path.resolve(__dirname, './public/js'),
@@ -40,7 +41,12 @@ module.exports = {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            proxy: 'http://localhost:3903'
+            proxy: 'http://localhost:3903',
+            files: 
+                [
+                    './*.php',
+                    './page-templates/*.php',
+                ]
         })
     ]
 };
