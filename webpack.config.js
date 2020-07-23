@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         index: './src/app/index.js',
         about: './src/app/about/about.js',
-        works: './src/app/works/works.js',
+        works: './src/app/works/works.js'
     },
     output: {
         path: path.resolve(__dirname, './public/js'),
@@ -34,7 +34,7 @@ module.exports = {
                     // Compiles Sass to CSS
                     'sass-loader',
                 ],
-            },
+            }
         ]
     },
     plugins: [
@@ -42,10 +42,10 @@ module.exports = {
             host: 'localhost',
             port: 3000,
             proxy: 'http://localhost:3903',
-            files: 
+            files:
                 [
                     './*.php',
-                    './page-templates/*.php',
+                    './page-templates/*.php'
                 ]
         })
     ]
