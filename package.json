@@ -4,7 +4,7 @@
   "description": "wp__webPack",
   "scripts": {
     "build:dev": "webpack --watch",
-    "build:prod": "webpack webpack.prod.js"
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
