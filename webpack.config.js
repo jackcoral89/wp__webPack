@@ -1,53 +1,108 @@
-const path = require("path");
+const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-module.exports = {
-    mode: 'development',
-    entry: {
-        index: './src/app/index.js',
-        about: './src/app/about/about.js',
-        works: './src/app/works/works.js',
-        globalStyles: './src/app/global.scss'
-    },
-    output: {
-        path: path.resolve(__dirname, './public/js'),
-        filename: '[name].js'
-    },
-    module: {
-        rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+const entryPoint = {
+    index: './src/app/index.js',
+    about: './src/app/about/about.js',
+    globalCss: './src/app/global.scss'
+}
+
+const pathResolve = path.resolve(__dirname, './public');
+
+buildConfig = (env) => {
+    if (env === 'dev') {
+        return {
+            mode: 'development',
+            entry: entryPoint,
+            output: {
+                path: pathResolve
             },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
-                ],
-            }
-        ]
-    },
-    plugins: [
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            proxy: 'http://localhost:3903',
-            files:
-                [
-                    './*.php',
-                    './page-templates/*.php'
+            module: {
+                rules: [
+                    {
+                        test: /\.(js|jsx)$/,
+                        exclude: /(node_modules)/,
+                        use: ['babel-loader']
+                    },
+                    {
+                        test: /\global.scss$/,
+                        use: [
+                            MiniCssExtractPlugin.loader,
+                            'css-loader',
+                            'sass-loader'
+                        ],
+                    },
+                    {
+                        test: /\.scss$/,
+                        exclude: [/\global.scss$/],
+                        use: [
+                            'style-loader', // creates style nodes from JS strings
+                            'css-loader', // translates CSS into CommonJS
+                            'sass-loader' // compiles Sass to CSS, using Node Sass by default
+                        ]
+                    },
                 ]
-        })
-    ]
-};
+            },
+            plugins: [
+                new MiniCssExtractPlugin({
+                    filename: '[name].css',
+                    chunkFilename: '[name].css'
+                }),
+                new BrowserSyncPlugin({
+                    host: 'localhost',
+                    port: 3000,
+                    proxy: 'http://localhost:' + 3903,
+                    files:
+                        [
+                            './*.php',
+                            './page-templates/*.php',
+                            './shared/*.php'
+                        ]
+                })
+            ]
+        }
+    } else if (env === 'prod') {
+        return {
+            mode: 'production',
+            entry: entryPoint,
+            output: {
+                path: pathResolve
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.(js|jsx)$/,
+                        exclude: /(node_modules)/,
+                        use: ['babel-loader']
+                    },
+                    {
+                        test: /\global.scss$/,
+                        use: [
+                            MiniCssExtractPlugin.loader,
+                            'css-loader',
+                            'sass-loader'
+                        ],
+                    },
+                    {
+                        test: /\.scss$/,
+                        exclude: [/\global.scss$/],
+                        use: [
+                            'style-loader',
+                            'css-loader',
+                            'sass-loader'
+                        ]
+                    },
+                ]
+            },
+            plugins: [
+                new MiniCssExtractPlugin({
+                    filename: '[name].css',
+                    chunkFilename: '[name].[hash].css'
+                })
+            ]
+        }
+    }
+}
+
+module.exports = buildConfig;
