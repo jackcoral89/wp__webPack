@@ -18,9 +18,12 @@
 
 <body>
 
-    <section class="nav pt-5 pl-5">
+    <!-- Navbar -->
+    <?php include TEMPLATEPATH . '/shared/component.php'; ?>
+
+    <div class="nav pt-5 pl-5">
         <ul>
             <li><a href="<?php the_permalink(10) ?>">Home</a></li>
             <li><a href="<?php the_permalink(2) ?>">Page Template</a></li>
         </ul>
-    </section>
+    </div>
