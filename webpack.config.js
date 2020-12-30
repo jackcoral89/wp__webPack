@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const entryPoint = {
     index: './src/app/index.js',
     about: './src/app/about/about.js',
-    globalCss: './src/app/global.scss'
+    globalCss: './src/app/global.scss',
+    my_component: './src/app/my-component/my-component.js'
 }
 
 const pathResolve = path.resolve(__dirname, './public');

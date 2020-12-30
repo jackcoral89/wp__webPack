@@ -25,5 +25,6 @@
         <ul>
             <li><a href="<?php the_permalink(10) ?>">Home</a></li>
             <li><a href="<?php the_permalink(2) ?>">Page Template</a></li>
+            <li><a href="<?php the_permalink(14) ?>">My Component</a></li>
         </ul>
     </div>

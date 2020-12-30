@@ -1,8 +1,8 @@
-<?php /* Template Name: Page_Template */ ?>
+<?php /* Template Name: About */ ?>
 
 <?php get_header(); ?>
 
-<h1>Page_Template</h1>
+<h1>About</h1>
 
 <?php get_footer(); ?>
 
