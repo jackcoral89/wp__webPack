@@ -6,16 +6,17 @@ const entryPoint = {
     index: './src/app/index.js',
     about: './src/app/about/about.js',
     globalCss: './src/app/global.scss',
-    my_component: './src/app/my-component/my-component.js'
+    myComponent: './src/app/my-component/my-component.js'
 }
 
 const pathResolve = path.resolve(__dirname, './public');
 
-buildConfig = (env) => {
-    if (env === 'dev') {
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
         return {
             mode: 'development',
             entry: entryPoint,
+            watch: true,
             output: {
                 path: pathResolve
             },
@@ -35,7 +36,7 @@ buildConfig = (env) => {
                         ],
                     },
                     {
-                        test: /\.scss$/,
+                        test: /\.s[ac]ss$/i,
                         exclude: [/\global.scss$/],
                         use: [
                             'style-loader', // creates style nodes from JS strings
@@ -63,7 +64,7 @@ buildConfig = (env) => {
                 })
             ]
         }
-    } else if (env === 'prod') {
+    } else if (argv.mode === 'production') {
         return {
             mode: 'production',
             entry: entryPoint,
@@ -106,4 +107,3 @@ buildConfig = (env) => {
     }
 }
 
-module.exports = buildConfig;
