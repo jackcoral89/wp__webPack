@@ -1,5 +1,5 @@
 # WP Webpack
-WordPress starter theme built with (Webpack)[https://webpack.js.org/].
+WordPress starter theme built with [Webpack](https://webpack.js.org/).
 
 ### How to use
 - 1 - Clone the project inside the `/wp-content/themes/` directory.
