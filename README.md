@@ -1,5 +1,5 @@
-# wp_template_webPack
-Starting template w/ WebPack + various plugins for managing a custom theme built on wordpress;
+# WP Webpack
+Starter theme w/ WebPack + various plugins for managing a custom theme built on wordpress;
 
 ### How to use
 - 1 - Clone the project inside the `/wp-content/themes/` directory.
