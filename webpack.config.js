@@ -37,7 +37,7 @@ const moduleRules = {
 			]
 		},
 		{
-			test: /\.(woff|woff2)$/,
+			test: /.(ttf|otf|eot|woff|woff2?|png|jpe?g|gif|svg|ico)$/,
 			use: {
 				loader: 'url-loader',
 			},
