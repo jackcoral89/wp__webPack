@@ -53,3 +53,11 @@ function cpt_name_cpt()
     );
 }
 // add_action('init', 'cpt_name_cpt');
+
+// Salvo le impostazioni acf cartella /acf-json
+function my_acf_json_save_point($path)
+{
+    $path = get_stylesheet_directory() . '/acf-json';
+    return $path;
+}
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
