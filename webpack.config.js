@@ -68,7 +68,6 @@ const moduleRules = {
 }
 
 export default function ModuleExport(env, argv) {
-	console.log('env', env);
 	if (argv.mode === 'development') {
 		return {
 			mode: 'development',
