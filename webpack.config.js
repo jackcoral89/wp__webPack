@@ -1,23 +1,41 @@
-const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const envConf = require('./config');
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
+// import { ENV } from './config.json';
 
 const entryPoint = {
-	index: './src/app/index.js',
-	about: './src/app/about/about.js',
-	globalCss: './src/app/global.scss',
-	myComponent: './src/app/my-component/my-component.js'
+	index: './src/index.js',
+	about: './src/pages/about/about.js',
+	globalCss: './src/global.scss',
+	myComponent: './src/shared/components/my-component/my-component.js'
 }
 
-const pathResolve = path.resolve(__dirname, './public');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const pathResolve = path.join(__dirname, './public');
 
 const moduleRules = {
 	rules: [
 		{
 			test: /\.(js|jsx|tsx)$/,
 			exclude: /(node_modules)/,
-			use: ['babel-loader']
+			use: {
+				loader: 'babel-loader',
+				options: {
+					"presets": [
+						"@babel/preset-env",
+						"@babel/preset-typescript",
+						"@babel/preset-react"
+					],
+					"plugins": [
+						"@babel/plugin-syntax-dynamic-import",
+						"@babel/plugin-proposal-class-properties"
+					]
+				}
+			}
 		},
 		{
 			test: /\global.scss$/,
@@ -45,7 +63,8 @@ const moduleRules = {
 	]
 }
 
-module.exports = (env, argv) => {
+export default function ModuleExport(env, argv) {
+	console.log('env', env);
 	if (argv.mode === 'development') {
 		return {
 			mode: 'development',
@@ -61,8 +80,8 @@ module.exports = (env, argv) => {
 					chunkFilename: '[name].css'
 				}),
 				new BrowserSyncPlugin({
-					host: envConf._host,
-					proxy: envConf._proxy,
+					host: ENV._host,
+					proxy: ENV._proxy,
 					files:
 						[
 							'./*.php',
