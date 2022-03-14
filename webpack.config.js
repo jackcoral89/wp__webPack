@@ -15,7 +15,7 @@ const pathResolve = path.resolve(__dirname, './public');
 const moduleRules = {
 	rules: [
 		{
-			test: /\.(js|jsx)$/,
+			test: /\.(js|jsx|tsx)$/,
 			exclude: /(node_modules)/,
 			use: ['babel-loader']
 		},
@@ -28,7 +28,7 @@ const moduleRules = {
 			],
 		},
 		{
-			test: /\.s[ac]ss$/i,
+			test: [/\.s[ac]ss$/i, /\.css$/i],
 			exclude: [/\global.scss$/],
 			use: [
 				'style-loader', // creates style nodes from JS strings
