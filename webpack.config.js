@@ -1,10 +1,9 @@
-
 import path from 'path';
 import { fileURLToPath } from 'url';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-// import { ENV } from './config.json';
+// import { ENV } from './config';
 
 const entryPoint = {
 	index: './src/index.js',
@@ -16,6 +15,11 @@ const entryPoint = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const pathResolve = path.join(__dirname, './public');
+
+const ENV = {
+	_host: "localhost",
+	_proxy: "http://localhost:3903"
+}
 
 const moduleRules = {
 	rules: [
