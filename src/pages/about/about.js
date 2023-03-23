@@ -1,1 +1,5 @@
-import './about.scss';
+export class About {
+
+}
+
+new About()
