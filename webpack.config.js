@@ -55,9 +55,6 @@ export default () => {
 				},
 			]
 		},
-		// resolve: {
-		// 	extensions: ['.tsx', '.ts', '.jsx'],
-		// },
 		plugins: [
 			new MiniCssExtractPlugin({
 				filename: "[name].css"
