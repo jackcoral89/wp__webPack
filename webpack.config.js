@@ -11,8 +11,8 @@ export default () => {
 		mode: process.env.NODE_ENV,
 		watch: process.env.NODE_ENV == "development" ? true : false,
 		entry: {
-			index: './src/index.js',
-			about: './src/pages/about/about.js',
+			index: './src/index.ts',
+			about: './src/pages/about/about.ts',
 			style: './src/index.scss',
 			myComponent: './src/shared/components/my-component/my-component.js'
 		},
@@ -22,7 +22,7 @@ export default () => {
 		module: {
 			rules: [
 				{
-					test: /\.(js|jsx|tsx)$/,
+					test: /\.(js|jsx|ts|tsx)$/,
 					exclude: /(node_modules)/,
 					use: {
 						loader: 'babel-loader',
@@ -55,6 +55,9 @@ export default () => {
 				},
 			]
 		},
+		// resolve: {
+		// 	extensions: ['.tsx', '.ts', '.jsx'],
+		// },
 		plugins: [
 			new MiniCssExtractPlugin({
 				filename: "[name].css"
