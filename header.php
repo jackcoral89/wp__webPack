@@ -12,7 +12,7 @@
 
     <title><?php the_title(); ?></title>
 
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/public/globalCss.css' ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/public/style.css' ?>">
 
 </head>
 
@@ -24,7 +24,7 @@
     <div class="nav pt-5 pl-5">
         <ul>
             <li><a href="<?php the_permalink(10) ?>">Home</a></li>
-            <li><a href="<?php the_permalink(2) ?>">Page Template</a></li>
-            <li><a href="<?php the_permalink(14) ?>">My Component</a></li>
+            <li><a href="<?php the_permalink(5) ?>">About</a></li>
+            <li><a href="<?php the_permalink(2) ?>">My Component page</a></li>
         </ul>
     </div>

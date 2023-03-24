@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 
 export default function App() {
 
-	const [state, setstate] = useState('test');
+	const [state, setstate] = useState('World');
 
 	return (
 		<div>
-			<h1>Hello World! React app here !</h1>
-			<h2>{state}</h2>
+			<h1>Hello {state}! React app here !</h1>
 		</div>
 	);
 }

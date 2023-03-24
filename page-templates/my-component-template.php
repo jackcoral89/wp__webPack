@@ -2,7 +2,7 @@
 
 <?php get_header(); ?>
 
-<h1>My Component Template</h1>
+<h1>My Component Template page</h1>
 
 <div id="root"></div>
 
